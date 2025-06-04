@@ -5,6 +5,10 @@ use panic_halt as _;
 
 #[arduino_hal::entry]
 fn main() -> ! {
+    starship_interface()
+}
+
+fn getting_started() -> ! {
     let dp = arduino_hal::Peripherals::take().unwrap();
     let pins = arduino_hal::pins!(dp);
 
@@ -23,5 +27,34 @@ fn main() -> ! {
     loop {
         led.toggle();
         arduino_hal::delay_ms(250);
+    }
+}
+
+fn starship_interface() -> ! {
+    let dp = arduino_hal::Peripherals::take().unwrap();
+    let pins = arduino_hal::pins!(dp);
+
+    let input = pins.d2.into_pull_up_input();
+    let mut green = pins.d3.into_output();
+    let mut red_one = pins.d4.into_output();
+    let mut red_two = pins.d5.into_output();
+
+    loop {
+        if input.is_low() {
+            green.set_high();
+            red_one.set_low();
+            red_two.set_low();
+        } else {
+            green.set_low();
+            red_one.set_low();
+            red_two.set_high();
+
+            arduino_hal::delay_ms(250);
+
+            red_one.set_high();
+            red_two.set_low();
+
+            arduino_hal::delay_ms(250);
+        }
     }
 }

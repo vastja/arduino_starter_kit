@@ -16,6 +16,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "arduino_starter_kit"
+version = "0.1.0"
+dependencies = [
+ "arduino-hal",
+ "embedded-hal 1.0.0",
+ "nb 1.1.0",
+ "panic-halt",
+ "ufmt",
+]
+
+[[package]]
 name = "atmega-hal"
 version = "0.1.0"
 source = "git+https://github.com/rahix/avr-hal?rev=fafaf587a32a4500239fd073f89d1b9c36b48092#fafaf587a32a4500239fd073f89d1b9c36b48092"
@@ -112,17 +123,6 @@ name = "embedded-storage"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "723dce4e9f25b6e6c5f35628e144794e5b459216ed7da97b7c4b66cdb3fa82ca"
-
-[[package]]
-name = "hello_arduino"
-version = "0.1.0"
-dependencies = [
- "arduino-hal",
- "embedded-hal 1.0.0",
- "nb 1.1.0",
- "panic-halt",
- "ufmt",
-]
 
 [[package]]
 name = "nb"

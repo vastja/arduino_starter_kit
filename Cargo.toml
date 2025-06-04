@@ -1,12 +1,12 @@
 [package]
-name = "hello_arduino"
+name = "arduino_starter_kit"
 version = "0.1.0"
 authors = ["vastja <vastja@gmail.com>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [[bin]]
-name = "hello_arduino"
+name = "arduino_starter_kit"
 test = false
 bench = false
 
